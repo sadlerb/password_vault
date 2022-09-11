@@ -1,19 +1,22 @@
 import './App.scss';
 
-import { NavBar } from './components/header/navbar.component';
-import { SideBar } from './components/sidebar/sidebar.component'
+import { Routes,Route} from "react-router-dom";
+
+import  NavBar  from './components/navbar/navbar.component';
+import Body  from './components/body/body.component'
 
 
 function App() {
   return (
     <div className='app-container'>
-      <div className='navigation'>
-        <NavBar />
-      </div>
-      <div className='sidebar'>
-        <SideBar />
-      </div>
+      <Routes>
+          <Route path={'/'} element={<NavBar />}>
+          <Route index element={<Body />}/>
+        </Route>
+      </Routes>
+
     </div>
+
   );
 }
 

@@ -1,0 +1,24 @@
+.search-box-container{
+    border-style: solid;
+    border-color: black;
+    margin: 20px 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 54px;
+    justify-content: center;
+    width: 250px;
+
+
+    .search-icon{
+        height: 23px;
+        width: 23px;
+        padding: 3px 5px;
+    }
+
+    .searchbox{
+        height: 26px;
+        outline: none;
+        border: none;
+    }
+}
