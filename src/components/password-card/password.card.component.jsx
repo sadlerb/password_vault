@@ -8,7 +8,7 @@ const PasswordCard = ({items})=>{
             <img alt='logo'/>
             <p>{username}</p>
             <p>{password}</p>
-        </div>
+        </div> 
     );
 }
 
