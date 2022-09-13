@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
+
+import { FormContext } from "../../context/password-form-context/password-from.context";
 
 import { SearchBox } from "../searchbox/searchbox.component";
 import PasswordCardList from "../password-card-list/password-card-list.component";
+import AddPasswordButton from "../add-password-button/add-password-button.component";
+import AddPasswordForm from "../add-password-form/add-password-form.component";
 
-import './body.styles.scss'
+import './body.styles.scss';
 
 const data = [
     {
@@ -30,7 +34,7 @@ const data = [
         password:'password3',
         key:5
     }
-]
+];
 
 
 
@@ -38,6 +42,8 @@ const data = [
 const Body = () =>{
     const [testData,setTestData] = useState(data);
     const [searchField,setSearchField] = useState('');
+
+    const {isFormOpen} = useContext(FormContext);
 
     const filteredPasswordsList = testData.filter((item) =>{
         const searchTerm = item.username;
@@ -52,8 +58,8 @@ const Body = () =>{
     }
 
     const addPassword = ()=>{
-        setTestData([...testData,{key:7,username:"newUsername",password:"Password"}])
-    }
+        setTestData([...testData,{key:7,username:"newUsername",password:"Password"}]);
+    };
 
     
 
@@ -63,9 +69,10 @@ const Body = () =>{
             <div className="password-cards">
                <PasswordCardList list={filteredPasswordsList} />
             </div>
-            <button onClick={addPassword}>add</button>
+            <AddPasswordButton />
+            {isFormOpen && <AddPasswordForm />}
         </div>
     );
 };
 
-export default Body
+export default Body;
