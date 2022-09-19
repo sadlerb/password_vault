@@ -1,15 +1,14 @@
 import './password.card.styles.scss';
 
-import VisibilityOnIcon from '@material-ui/icons/Visibility';
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
-import CopyContentIcon from '@material-ui/icons/FileCopy';
+
+import {Visibility,VisibilityOff,FileCopy,MoreHoriz} from '@material-ui/icons';
 
 import { useState } from 'react';
 
 const PasswordCard = ({items})=>{
 
     const [isPasswordVisible,setPasswordVisibility] = useState(false)
-    const {username,password} = items;
+    const {username,password,website} = items;
 
     const setPasswordVisibilityHandeler = () => {
         setPasswordVisibility(!isPasswordVisible)
@@ -19,17 +18,27 @@ const PasswordCard = ({items})=>{
 
     return(
         <div className="password-card-container">
-            <img alt='logo'/>
+            <div className='card-head-container'>
+                <img alt='logo'/>
+                <button>
+                    <MoreHoriz />
+                </button>
+            </div>
+
             <p>{username}</p>
-            <p>{isPasswordVisible ? (password) : ('**********')}</p>
-            <button onClick={setPasswordVisibilityHandeler}>
-                {isPasswordVisible ? <VisibilityOffIcon /> : <VisibilityOnIcon />}
-            </button>
+            <div className='password-block'>
             <button onClick={()=>{
-                alert("Copy Content Button Clicked")
-            }}>
-                <CopyContentIcon />
-            </button>
+                    navigator.clipboard.writeText(password);
+                    alert("Password copied to clipboard");
+                }}>
+                    <FileCopy />
+                </button>
+                <p>{isPasswordVisible ? (password) : ('**********')}</p>
+                <button onClick={setPasswordVisibilityHandeler}>
+                    {isPasswordVisible ? <VisibilityOff /> : <Visibility />}
+                </button>
+
+            </div>
 
         </div> 
     );

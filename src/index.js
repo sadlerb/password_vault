@@ -8,13 +8,16 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ListProvider } from './context/password-list-context/password-list.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <FormProvider >
-        <App />
+        <ListProvider>
+          <App />
+        </ListProvider>
       </FormProvider>
     </BrowserRouter>
   </React.StrictMode>

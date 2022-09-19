@@ -9,7 +9,7 @@ const AddPasswordButton = () => {
     const {setIsFormOpen,isFormOpen} = useContext(FormContext);
 
     return(
-        <div>
+        <div className='password-button-container'>
             <button onClick={()=>{
                 setIsFormOpen(!isFormOpen)
             }}>

@@ -1,0 +1,7 @@
+.dim{
+    -o-filter: grayscale(50%) blur(5px);
+    -webkit-filter: grayscale(50%) blur(5px);
+    -moz-filter: grayscale(50%) blur(5px);
+    filter: grayscale(50%) blur(5px);
+    pointer-events: none;
+}
