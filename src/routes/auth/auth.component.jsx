@@ -1,13 +1,24 @@
-import  SignInForm  from '../../components/sign-in/sign-in.component';
-import  SignUpForm  from '../../components/sign-up/sign-up.component';
+import "@aws-amplify/ui-react/styles.css";
+import {
+  withAuthenticator,
+  Button,
+  Heading,
+  Image,
+  View,
+  Card,
+} from "@aws-amplify/ui-react";
 
-const Auth = () => {
-    return(
-        <div>
-            <SignInForm />
-            <SignUpForm />
-        </div>
+
+const Auth = ({ signOut }) => {
+    return (
+      <View className="App">
+        <Card>
+          <Image className="App-logo" alt="logo" />
+          <Heading level={1}>We now have Auth!</Heading>
+        </Card>
+        <Button onClick={signOut}>Sign Out</Button>
+      </View>
     );
-};
-
-export default Auth;
+  }
+  
+  export default withAuthenticator(Auth);
