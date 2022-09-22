@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { FormContext } from '../../context/password-form-context/password-from.context';
+import { FormContext } from '../../context/password-form-context/password-form.context';
 
 import './add-password-button.styles.scss';
 

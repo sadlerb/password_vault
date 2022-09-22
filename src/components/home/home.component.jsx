@@ -1,6 +1,6 @@
 import { useState,useContext } from "react";
 
-import { FormContext } from "../../context/password-form-context/password-from.context";
+import { FormContext } from '../../context/password-form-context/password-form.context';
 import { ListContext } from "../../context/password-list-context/password-list.context";
 
 import { SearchBox } from "../searchbox/searchbox.component";
@@ -8,12 +8,12 @@ import PasswordCardList from "../password-card-list/password-card-list.component
 import AddPasswordButton from "../add-password-button/add-password-button.component";
 import AddPasswordForm from "../add-password-form/add-password-form.component";
 
-import './body.styles.scss';
+import './home.styles.scss';
 
 
 
 
-const Body = () =>{
+const Home = () =>{
 
     const [searchField,setSearchField] = useState('');
 
@@ -37,7 +37,7 @@ const Body = () =>{
 
     return(
         <div>
-            <div className={isFormOpen && 'dim'}>
+            <div className={isFormOpen ? 'dim' : undefined}>
                 <SearchBox onChangeHandeler={onSearchChangeHandeler} placeholder={"Search Passwords"}/>
                 <div className="password-cards">
                     <PasswordCardList list={filteredPasswordsList} />
@@ -49,4 +49,4 @@ const Body = () =>{
     );
 };
 
-export default Body;
+export default Home;
